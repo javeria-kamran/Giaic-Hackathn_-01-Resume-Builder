@@ -1,0 +1,140 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://as2.ftcdn.net/v2/jpg/08/11/22/59/1000_F_811225991_u7bba4mbKgpyjxT8qdPIgALsPseZFbn7.jpg');
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Form Styles */
+  form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  h2{
+    color: rgb(0, 0, 39);
+  }
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+  }
+  button{
+    background-color: #0c0074;
+  }
+  
+  button:hover {
+    background-color: #2b1cac;
+  }
+  
+  /* Generated Resume Section */
+  #generated-resume {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: none; /* Initially hidden */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #resume-content {
+    font-size: 16px;
+    color: #0c0074;
+  }
+  
+  /* Save and Reset Buttons */
+  #save-resume, #reset-resume {
+    margin-top: 10px;
+    padding: 10px 20px;
+  }
+
+  #dynamic{
+    color: white;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    form, #generated-resume {
+      width: 90%;
+      margin: 0 auto;
+    }
+  
+    button {
+      padding: 10px;
+    }
+  
+    input, textarea {
+      padding: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    body {
+      padding: 10px;
+    }
+  
+    form, #generated-resume {
+      width: 100%;
+      margin: 0;
+      padding: 15px;
+    }
+  
+    button {
+      padding: 10px;
+      font-size: 14px;
+    }
+  
+    input, textarea {
+      padding: 8px;
+      font-size: 14px;
+    }
+  
+    #resume-content {
+      font-size: 14px;
+    }
+  }
+
+#share-link-container {
+    margin-top: 10px;
+  }
