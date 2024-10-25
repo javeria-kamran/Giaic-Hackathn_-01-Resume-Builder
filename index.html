@@ -7,43 +7,71 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1 id="dynamic"><u>Dynamic Resume Builder</u></h1>
+  <div class="container">
+    <h1 id="dynamic">Build Your Resume</h1>
 
-  <form id="resume-form">
-    <h2>Personal Information</h2>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-    <br>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    <br>
+    <form id="resume-form">
+      <div class="section personal-info">
+        <h2>Objective</h2>
+        <label for="objective">(Max 60 Characters Allowed)</label>
+        <textarea maxlength="60" id="objective" name="objective" placeholder="I would like to leverage my hands on AI models" required></textarea>
+        <br>
+        <h2>Personal Information</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="John Doe" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="JohnDoe@gmail.com" required>
+        <br>
+      </div>
 
-    <h2>Education</h2>
-    <label for="education">Education:</label>
-    <textarea id="education" name="education" required></textarea>
-    <br>
+      <div class="section education">
+        <h2>Education</h2>
+        <label for="education">Note: Comma Seperated</label>
+        <textarea id="education" name="education" placeholder="Matriculation from ABC school"required></textarea>
+        <br>
+      </div>
 
-    <h2>Work Experience</h2>
-    <label for="experience">Work Experience:</label>
-    <textarea id="experience" name="experience" required></textarea>
-    <br>
+      <div class="section experience">
+        <h2>Work Experience</h2>
+        <label for="experience"> Note: Comma Seperated</label>
+        <textarea id="experience" name="experience" placeholder="Work as ABC at XYZ comapny"></textarea>
+        <br>
+      </div>
 
-    <h2>Skills</h2>
-    <label for="skills">Skills:</label>
-    <textarea id="skills" name="skills" required></textarea>
-    <br>
+      <div class="section skills">
+        <h2>Skills</h2>
+        <label for="skills">Note: Comma Seperated</label>
+        <textarea id="skills" name="skills" placeholder="HTML , CSS , Javascript " required></textarea>
+        <br>
 
-    <button  type="submit">Generate Resume</button>
-  </form>
+        <h2>Github URL</h2>
+        <label for="education">If has any:</label>
+        <input type="url" placeholder="https://github.com"  id="github" name="github"></input>
+        <br>
 
-  <section id="generated-resume">
-    <h2>Generated Resume</h2>
-    <div id="resume-content" contenteditable="true"></div>
-    <button id="save-resume">Save Resume</button>
-    <button id="reset-resume">Reset Resume</button>
+        <h2>Linkedin URL</h2>
+        <label for="linkedin">Enter valid URL:</label>
+        <input type="url" placeholder="https://linkedin.com" id="linkedin" name="linkedin" required></input>
+        <br>
+      </div>
 
-  </section>
+      <button type="submit">Generate Resume</button>
+    </form>
 
+    <section id="generated-resume">
+      <h2>Generated Resume</h2>
+      <div id="resume-content" contenteditable="true"></div>
+      <div id="button-group">
+        <button id="save-resume">Save Resume</button>
+        <button id="reset-resume">Reset Resume</button>
+        <a id="generated-link" href="" target="_blank" style="display: none;">Share your resume</a>
+      </div>
+      
+    </section>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

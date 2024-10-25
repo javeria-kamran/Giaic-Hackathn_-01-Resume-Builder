@@ -1,140 +1,160 @@
-/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-image: url('https://as2.ftcdn.net/v2/jpg/08/11/22/59/1000_F_811225991_u7bba4mbKgpyjxT8qdPIgALsPseZFbn7.jpg');
-    margin: 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 20px;
-    background-color: #f4f4f4;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-  }
-  
-  /* Form Styles */
-  form {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-  }
-  
-  input, textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-  
-  textarea {
-    resize: vertical;
-    min-height: 100px;
-  }
-  h2{
-    color: rgb(0, 0, 39);
-  }
-  button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-  }
-  button{
-    background-color: #0c0074;
-  }
-  
-  button:hover {
-    background-color: #2b1cac;
-  }
-  
-  /* Generated Resume Section */
+  background-color: #ffffff; 
+  color: #ffffff;
+  padding: 20px;
+}
+
+#dynamic {
+  margin-bottom: 18px;
+  font-weight: 300;
+}
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #585700; 
+  text-align: center;
+}
+
+h2 {
+  color: #ffffff; 
+  text-align: center;
+}
+
+form {
+  background-color: #0d344e; 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+label {
+  color: #d7e0a0; 
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #333333; 
+  border: 1px solid #444444; 
+  color: #fff; 
+  border-radius: 5px;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #d7e0a0; 
+}
+
+button {
+  background-color: #e2ee97;
+  color: #000000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #ddd26b; }
+
+#generated-resume {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #032750;
+  border-radius: 10px;
+  display: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+#objective{
+  margin-top: 18px;
+}
+#resume-content {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+}
+#resume-content h3 {
+  font-size: 1.2rem;
+  color: #0d344e; 
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e2ee97; 
+  padding-bottom: 5px;
+}
+
+#resume-content p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+#save-resume,
+#reset-resume,
+#generated-link {
+  display: inline-block; 
+  vertical-align: middle;
+}
+
+#generated-link {
+  margin-left: 247px;
+  text-decoration: underline;
+  color: #e2ee97; 
+  margin-top: 28px;
+  cursor: pointer;
+}
+
+#save-resume,
+#reset-resume {
+  margin-right: 10px;
+}
+
+#generated-link {
+  color: #ece282;
+  display: block;
+  text-align: right;
+}
+#button-group {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center; 
+}
+
+#save-resume,
+#reset-resume,
+#generated-link {
+  margin-right: 10px; 
+}
+
+@media only screen and (max-width: 768px) {
+  form,
   #generated-resume {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    display: none; /* Initially hidden */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  #resume-content {
-    font-size: 16px;
-    color: #0c0074;
-  }
-  
-  /* Save and Reset Buttons */
-  #save-resume, #reset-resume {
-    margin-top: 10px;
-    padding: 10px 20px;
+    padding: 15px;
   }
 
-  #dynamic{
-    color: white;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    form, #generated-resume {
-      width: 90%;
-      margin: 0 auto;
-    }
-  
-    button {
-      padding: 10px;
-    }
-  
-    input, textarea {
-      padding: 10px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    body {
-      padding: 10px;
-    }
-  
-    form, #generated-resume {
-      width: 100%;
-      margin: 0;
-      padding: 15px;
-    }
-  
-    button {
-      padding: 10px;
-      font-size: 14px;
-    }
-  
-    input, textarea {
-      padding: 8px;
-      font-size: 14px;
-    }
-  
-    #resume-content {
-      font-size: 14px;
-    }
+  input,
+  textarea {
+    padding: 8px;
   }
 
-#share-link-container {
-    margin-top: 10px;
+  button {
+    width: 100%;
+    margin-bottom: 10px;
   }
+}

@@ -1,57 +1,80 @@
+declare const html2pdf: any;  
 
 const form = document.getElementById('resume-form') as HTMLFormElement;
 const resumeContent = document.getElementById('resume-content') as HTMLDivElement;
 const generatedResumeSection = document.getElementById('generated-resume') as HTMLElement;
 const saveResumeButton = document.getElementById('save-resume') as HTMLButtonElement;
 const resetResumeButton = document.getElementById('reset-resume') as HTMLButtonElement;
+const generatedLink = document.getElementById('generated-link') as HTMLAnchorElement;
+
+const baseUrl = 'https://giaic-hackathn-01-resume-builder.vercel.app/';
 
 form.addEventListener('submit', (event) => {
-  event.preventDefault(); // Prevent page reload
+  event.preventDefault(); 
 
   // Capture form data
+  const objective = (document.getElementById('objective') as HTMLInputElement).value;
   const name = (document.getElementById('name') as HTMLInputElement).value;
   const email = (document.getElementById('email') as HTMLInputElement).value;
   const education = (document.getElementById('education') as HTMLTextAreaElement).value;
   const experience = (document.getElementById('experience') as HTMLTextAreaElement).value;
   const skills = (document.getElementById('skills') as HTMLTextAreaElement).value;
+  const github = (document.getElementById('github') as HTMLTextAreaElement).value;
+  const linkedin = (document.getElementById('linkedin') as HTMLTextAreaElement).value;
 
-  // Generate the resume HTML dynamically
+  
   const resumeHTML = `
-    <h3>Personal Information</h3>
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>Email:</strong> ${email}</p>
 
-    <h3>Education</h3>
-    <p>${education}</p>
+ <h3 contenteditable="false">Objective</h3>
+    <p contenteditable="true">${objective}</p>
 
-    <h3>Work Experience</h3>
-    <p>${experience}</p>
+    <h3 contenteditable="false">Personal Information:</h3>
+    <p contenteditable="true"><strong>Name:</strong> ${name}</p>
+    <p contenteditable="true"><strong>Email:</strong> ${email}</p>
 
-    <h3>Skills</h3>
-    <p>${skills}</p>
+    <h3 contenteditable="false">Education</h3>
+    <p contenteditable="true">${education}</p>
+
+    <h3 contenteditable="false">Work Experience</h3>
+    <p contenteditable="true">${experience}</p>
+
+    <h3 contenteditable="false">Skills</h3>
+    <p contenteditable="true">${skills}</p>
+
+      <h3 contenteditable="false">Github URL</h3>
+    <p contenteditable="true">${github}</p>
+
+      <h3 contenteditable="false">Linkedin URL</h3>
+    <p contenteditable="true">${linkedin}</p>
   `;
 
-  // Insert the dynamically generated content
   resumeContent.innerHTML = resumeHTML;
+  const uniqueUrl = `${baseUrl}/${name}`;
+  generatedLink.href = uniqueUrl;
+  generatedLink.innerText = "Share your resume ";
+  generatedLink.style.display = 'block';
 
-  // Show the generated resume section
   generatedResumeSection.style.display = 'block';
 
-  // Enable save and reset buttons
   saveResumeButton.disabled = false;
   resetResumeButton.disabled = false;
 });
 
 saveResumeButton.addEventListener('click', () => {
-  // Implement your save functionality here
-  // For example, you could save the resume content to local storage or a server
-  console.log('Saving resume...');
+  const element = document.getElementById('resume-content');
+  const opt = {
+    margin:       1,
+    filename:     'resume.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2 },
+    jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+  };
+
+  html2pdf().from(element).set(opt).save();
 });
 
 resetResumeButton.addEventListener('click', () => {
-  // Reset the resume content to its original state
   resumeContent.innerHTML = '';
   generatedResumeSection.style.display = 'none';
-
+  generatedLink.style.display = 'none'; 
 });
-
