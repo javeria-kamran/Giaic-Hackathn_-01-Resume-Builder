@@ -128,12 +128,16 @@ button:hover {
   color: #ece282;
   display: block;
   text-align: right;
+  white-space: nowrap; 
 }
+
 #button-group {
   margin-top: 20px;
   display: flex;
+  flex-wrap: wrap;
+  gap: 10px; 
   justify-content: flex-start; 
-  align-items: center; 
+  /* align-items: center;  */
 }
 
 #save-resume,
@@ -156,5 +160,15 @@ button:hover {
   button {
     width: 100%;
     margin-bottom: 10px;
+  }
+  #button-group {
+    flex-direction: column; /* Stack buttons and link vertically on small screens */
+    align-items: stretch; /* Stretches to the full width of the container */
+  }
+
+  #generated-link {
+    text-align: center;
+    font-size: 0.9rem; /* Adjust font size for readability */
+    margin: 10px 0;
   }
 }

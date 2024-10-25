@@ -5,7 +5,7 @@ const resumeContent = document.getElementById('resume-content') as HTMLDivElemen
 const generatedResumeSection = document.getElementById('generated-resume') as HTMLElement;
 const saveResumeButton = document.getElementById('save-resume') as HTMLButtonElement;
 const resetResumeButton = document.getElementById('reset-resume') as HTMLButtonElement;
-const generatedLink = document.getElementById('generated-link') as HTMLAnchorElement;
+
 
 const baseUrl = 'https://giaic-hackathn-01-resume-builder.vercel.app/';
 
@@ -49,10 +49,7 @@ form.addEventListener('submit', (event) => {
   `;
 
   resumeContent.innerHTML = resumeHTML;
-  const uniqueUrl = `${baseUrl}/${name}`;
-  generatedLink.href = uniqueUrl;
-  generatedLink.innerText = "Share your resume ";
-  generatedLink.style.display = 'block';
+  
 
   generatedResumeSection.style.display = 'block';
 
@@ -76,5 +73,5 @@ saveResumeButton.addEventListener('click', () => {
 resetResumeButton.addEventListener('click', () => {
   resumeContent.innerHTML = '';
   generatedResumeSection.style.display = 'none';
-  generatedLink.style.display = 'none'; 
+ 
 });
